@@ -1,4 +1,4 @@
-const Command = require('../command.js').Command;
+const Command = require('../../lib/Command.js').Command;
 const command = new Command(['help'], 0, function({msg, args}) {
     if(args.length < 1) {
         let commands = []

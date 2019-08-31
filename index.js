@@ -1,4 +1,4 @@
-const client = require('./assyst.js').client
+const client = require('./lib/Assyst.js').client
 const config = require('./config.json')
 
 console.log('Starting Assyst')

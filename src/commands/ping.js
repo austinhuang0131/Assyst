@@ -1,4 +1,4 @@
-const Command = require('../command.js').Command;
+const Command = require('../../lib/Command.js').Command;
 const command = new Command(['ping', 'pong', 'pang'], 0, function({msg}) {
     this.sendMsg(msg.channel, 'Pong!', 'success')
 })

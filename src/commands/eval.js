@@ -1,4 +1,4 @@
-const Command = require('../command.js').Command;
+const Command = require('../../lib/Command.js').Command;
 const command = new Command(['eval', 'e'], 2, async function ({ msg, args }) {
     let evaled;
     let flags = this.utils.resolveFlags(args, [])
