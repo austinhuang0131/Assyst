@@ -5,7 +5,7 @@ const command = new Command(['ping', 'pong', 'pang'], 0, async function({msg, cl
     if(!message) {
         return null
     }
-    message.edit(client.emotes.success + ' Pong! `' + Date.now() - start + 'ms`')
+    message.edit(this.assyst.emotes.success + ' Pong! `' + Date.now() - start + 'ms`')
 })
 
 module.exports = {
