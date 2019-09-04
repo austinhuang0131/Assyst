@@ -5,7 +5,7 @@ const command = new Command(['ping', 'pong', 'pang'], 0, async function({msg}) {
     if(!message) {
         return null
     }
-    this.bot.editMessage(message.id, `Pong! \`${Date.now() - start}ms\``)
+    this.bot.editMessage(msg.channel.id, message.id, `Pong! \`${Date.now() - start}ms\``)
 })
 
 module.exports = {
