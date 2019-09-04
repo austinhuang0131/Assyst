@@ -12,7 +12,7 @@ pm2.connect( (err) => {
         name: 'Assyst',
         exec_mode: 'fork',
         max_memory_restart: '1G',
-        cwd: 'src',
+        cwd: '.',
         error: '../logs/error.err',
         output: '../logs/output.log',
         pid: '../logs/pid.pid',
