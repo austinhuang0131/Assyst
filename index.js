@@ -1,4 +1,4 @@
-const Assyst = require('./lib/Assyst.js')
+const Assyst = require('./lib/Assyst.js').Assyst
 const config = require('./config.json')
 
 const client = new Assyst(config)
