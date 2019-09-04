@@ -1,8 +1,6 @@
 const Assyst = require('./lib/Assyst.js')
 const config = require('./config.json')
 
-console.log(config)
-
 const client = new Assyst(config)
 
 console.log('Starting Assyst')
