@@ -42,7 +42,7 @@ async function checkRepl(msg) {
             return
         }
         const utils = require('./src/utils')
-        const response = await utils.request(require('./config.json').chiasm-ip, 'POST', {"content-type": "application/json"}, {code: contentToSend, lang: currentRepl.lang, imports: []})
+        const response = await utils.request(require('./config.json')["chiasm-ip"], 'POST', {"content-type": "application/json"}, {code: contentToSend, lang: currentRepl.lang, imports: []})
         msg.channel.createMessage('```\n' + response.text + '\n```')
     }
 }
