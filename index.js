@@ -36,7 +36,7 @@ async function checkRepl(msg) {
         return
     } else {
         const currentRepl = client.repl.find(j => j.user === msg.author.id && j.channel === msg.channel.id)
-        const contentToSend = msg.substr(1, msg.content.length - 2)
+        const contentToSend = msg.content.substr(1, msg.content.length - 2)
         if(contentToSend === 'exit') {
             client.repl.splice(client.repl.indexOf(currentRepl, 1))
             return
