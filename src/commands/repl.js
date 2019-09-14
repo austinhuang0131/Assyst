@@ -1,6 +1,6 @@
 const Command = require('../../lib/Command.js').Command;
 const command = new Command(['repl'], 0, async function ({ msg, args }) {
-    let aliases = this.utils.getChiasmAliases(this)
+    let aliases = await this.utils.getChiasmAliases(this)
     if(!aliases.includes(args[0])) {
         return this.sendMsg(msg.channel, 'That language isn\'t valid.', 'error')
     } else if(this.assyst.repl.map(i => i.channel).includes(msg.channel.id) && this.assyst.repl.map(i => i.user).includes(msg.author.id)) {
