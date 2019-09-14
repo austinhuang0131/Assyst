@@ -65,6 +65,33 @@ class Utils {
         await promisifyUnlink(__dirname + "/" + filename)
         return response.body.urls.main
     }
+
+    async getChiasmAliases(ctx) {
+        let response = await ctx.request('http://152.89.106.191:4840/languages', 'GET')
+        let aliasesArrays = Object.values(JSON.parse(response.text)).map(i => i.aliases)
+        let aliases = []
+        aliasesArrays.forEach(array => {
+            array.forEach(value => {
+                aliases.push(value)
+            })
+        })
+        return aliases
+    }
+
+    async request(url, type, set, args) {
+        if (type.toUpperCase() === 'GET') {
+            const response = await superagent.get(url)
+            return response
+        } else if (type === 'POST') {
+            const response = await superagent
+                .post(url)
+                .set(set)
+                .send(args)
+            return response
+        } else {
+            throw new Error('You must either GET or POST with superagent')
+        }
+    }
 }
 
 module.exports = {
