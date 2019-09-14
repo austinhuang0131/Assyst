@@ -35,7 +35,7 @@ async function checkRepl(msg) {
     } else if (!client.repl.map(i => i.user).includes(msg.author.id) || !client.repl.map(i => i.channel).includes(msg.channel.id)) {
         return
     } else {
-        const currentRepl = client.repl.find(j => j.map(i => i.user).includes(msg.author.id) && j.map(i => i.channel).includes(msg.channel.id))
+        const currentRepl = client.repl.find(j => j.includes(msg.author.id) && j.includes(msg.channel.id))
         const contentToSend = msg.substr(1, msg.content.length - 2)
         if(contentToSend === 'exit') {
             client.repl.splice(client.repl.indexOf(currentRepl, 1))
