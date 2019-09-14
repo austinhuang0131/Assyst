@@ -28,9 +28,9 @@ client.bot.on('messageCreate', (msg) => {
 });
 
 async function checkRepl(msg) {
-    if(!msg.startsWith('`') || !msg.endsWith('`')) {
+    if(!msg.content.startsWith('`') || !msg.content.endsWith('`')) {
         return;
-    } else if (msg.startsWith('```')) {
+    } else if (msg.content.startsWith('```')) {
         return
     } else if (!client.repl.map(i => i.user).includes(msg.author.id) || !client.repl.map(i => i.channel).includes(msg.channel.id)) {
         return
