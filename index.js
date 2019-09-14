@@ -39,6 +39,7 @@ async function checkRepl(msg) {
         const contentToSend = msg.content.substr(1, msg.content.length - 2)
         if(contentToSend === 'exit') {
             client.repl.splice(client.repl.indexOf(currentRepl, 1))
+            msg.channel.createMessage(client.emotes.success + ' The REPL session was ended.')
             return
         }
         const utilsFile = require('./src/utils').Utils
