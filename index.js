@@ -36,7 +36,6 @@ async function checkRepl(msg) {
         return
     } else {
         const currentRepl = client.repl.find(j => j.user === msg.author.id && j.channel === msg.channel.id)
-        console.log(currentRepl)
         const contentToSend = msg.content.substr(1, msg.content.length - 2)
         if(contentToSend === 'exit') {
             client.repl.splice(client.repl.indexOf(currentRepl, 1))
@@ -45,6 +44,7 @@ async function checkRepl(msg) {
         const utilsFile = require('./src/utils').Utils
         const utils = new utilsFile
         const response = await utils.requestAPI(require('./config.json')["chiasm-ip"], 'POST', {"content-type": "application/json"}, {code: contentToSend, lang: currentRepl.lang, imports: []})
+        console.log(response.text)
         msg.channel.createMessage('```\n' + response.text + '\n```')
     }
 }
