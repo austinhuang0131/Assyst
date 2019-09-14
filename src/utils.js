@@ -3,7 +3,6 @@ const promisifyWrite = require('util').promisify(fs.writeFile)
 const promisifyUnlink = require('util').promisify(fs.unlink)
 const superagent = require('superagent')
 class Utils {
-
     elapsed(value) {
         let date = new Date(value)
         let elapsed = { days: date.getUTCDate() - 1, hours: date.getUTCHours(), minutes: date.getUTCMinutes(), seconds: date.getUTCSeconds() }
