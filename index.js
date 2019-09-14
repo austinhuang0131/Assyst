@@ -45,6 +45,7 @@ async function checkRepl(msg) {
         const utilsFile = require('./src/utils').Utils
         const utils = new utilsFile
         const response = await utils.requestAPI(require('./config.json').chiasmIP, 'POST', {"content-type": "application/json"}, {code: contentToSend, lang: currentRepl.lang, imports: []})
+        console.log(response.text)
         msg.channel.createMessage('```\n' + response.text + '\n```')
     }
 }
