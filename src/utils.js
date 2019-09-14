@@ -78,7 +78,7 @@ class Utils {
         return aliases
     }
 
-    async request(url, type, set, args) {
+    async requestAPI(url, type, set, args) {
         if (type.toUpperCase() === 'GET') {
             const response = await superagent.get(url)
             return response
