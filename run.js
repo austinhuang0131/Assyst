@@ -20,6 +20,8 @@ pm2.connect( (err) => {
         wait_ready: true,
     }, (e) => {
         pm2.disconnect();
-        if (e) throw e;
+        if (e) {
+            throw e;
+        }
     } );
 } );
