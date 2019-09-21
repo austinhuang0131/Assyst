@@ -13,7 +13,7 @@ const command = new Command( ['stats'], 0, function ( { msg } ) {
             thumbnail: {
                 url: this.bot.user.avatarURL,
             },
-            description: `[Git](${require('../../package.json').repository.url}) | [Discord](${require('config.json').discord})`,
+            description: `[Git](${require('../../package.json').repository.url}) | [Discord](${require('../../config.json').discord})`,
             fields: [
                 {
                     name: 'Guilds',
