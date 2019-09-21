@@ -5,6 +5,7 @@ const command = new Command( ['stats'], 0, ( ( { msg } ) => {
     const cpuLength = cpu.length;
     const cpuType = cpu[0];
     const uptime = this.utils.elapsed(this.bot.uptime);
+    console.log(this.utils);
     this.sendMsg(msg.channel, {
         embed: {
             title: `${this.bot.user.username} statistics`,
