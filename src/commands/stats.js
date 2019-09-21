@@ -1,5 +1,5 @@
 const { Command } = require('../../lib/Command.js');
-const command = new Command( ['stats'], 0, ( ( { msg } ) => {
+const command = new Command( ['stats'], 0, function ( { msg } ) {
     const memoryUsage = process.memoryUsage().heapUsed;
     const cpu = require('os').cpus().map(i => i.model);
     const cpuLength = cpu.length;
@@ -39,7 +39,7 @@ const command = new Command( ['stats'], 0, ( ( { msg } ) => {
             ],
         },
     } );
-} ) );
+} );
 
 module.exports = {
     command,
