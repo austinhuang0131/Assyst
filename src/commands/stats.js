@@ -4,7 +4,7 @@ const command = new Command( ['stats'], 0, ( ( { msg } ) => {
     const cpu = require('os').cpus().map(i => i.model);
     const cpuLength = cpu.length;
     const cpuType = cpu[0];
-    console.log(this.utils);
+    console.log(this);
     const uptime = this.utils.elapsed(this.bot.uptime);
     this.sendMsg(msg.channel, {
         embed: {
