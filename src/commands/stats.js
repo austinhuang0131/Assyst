@@ -1,6 +1,7 @@
 const { Command } = require('../../lib/Command.js');
 const command = new Command( ['stats'], 0, function ( { msg } ) {
-    const memoryUsage = process.memoryUsage().heapUsed;
+    // eslint-disable-next-line no-magic-numbers
+    const memoryUsage = process.memoryUsage().heapUsed / 1024 / 1024;
     const cpu = require('os').cpus().map(i => i.model);
     const cpuLength = cpu.length;
     const cpuType = cpu[0];
