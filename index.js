@@ -1,6 +1,5 @@
 const { Assyst } = require('./lib/Assyst.js');
 const config = require('./config.json');
-
 const client = new Assyst(config);
 
 console.log('Starting Assyst');
@@ -14,7 +13,7 @@ async function checkRepl(msg) {
         return;
     } if (msg.content.startsWith('```') ) {
         return;
-    } if (!client.repl.map(i => i.user).includes(msg.author.id) || !client.repl.map(i => i.channel).includes(msg.channel.id) ) {
+    } if (!client.repl.map(i => i.user).includes(msg.author.id) || !client.repl.find(i => i.channel === msg.channel.id) ) {
         return;
     }
     const currentRepl = client.repl.find(j => j.user === msg.author.id && j.channel === msg.channel.id);
@@ -24,9 +23,7 @@ async function checkRepl(msg) {
         msg.channel.createMessage(`${client.emotes.success} The REPL session was ended.`);
         return;
     }
-    const UtilsFile = require('./src/utils').Utils;
-    const utils = new UtilsFile;
-    const response = await utils.requestAPI(require('./config.json').chiasmIP, 'POST', { 'content-type': 'application/json' }, { code: contentToSend, lang: currentRepl.lang, imports: [] } );
+    const response = await client.utils.requestAPI(require('./config.json').chiasmIP, 'POST', { 'content-type': 'application/json' }, { code: contentToSend, lang: currentRepl.lang, imports: [] } );
     msg.channel.createMessage(`\`\`\`\n${response.text}\n\`\`\``);
 }
 
